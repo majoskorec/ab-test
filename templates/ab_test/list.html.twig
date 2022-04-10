@@ -35,7 +35,7 @@
 					<td>{{ row.user.name }}</td>
 					<td>{{ row.patient }}</td>
 					<td>{{ row.patientIdentifier }}</td>
-					<td>{{ row.abTest }}</td>
+					<td>{{ row.abTest ? 'A' : 'B' }}</td>
 					<td>{{ row.createdAt|date }}</td>
 				</tr>
 				{% endfor %}
