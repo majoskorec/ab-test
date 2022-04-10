@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AB Test - list{% endblock %}
+{% block header %}AB Test - list{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="col">
+			Tests: {{ stats.total }}
+			|
+			A: {{ stats.aCount }}
+			|
+			B: {{ stats.bCount }}
+			|
+			<a href="{{ path('app_ab_test_create') }}">add new</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<table class="table">
+				<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">User</th>
+					<th scope="col">Patient</th>
+					<th scope="col">Patient Identifier</th>
+					<th scope="col">Ab Test</th>
+					<th scope="col">Created At</th>
+				</tr>
+				</thead>
+				<tbody>
+				{% for row in list %}
+				<tr>
+					<th scope="row">{{ row.id }}</th>
+					<td>{{ row.user.name }}</td>
+					<td>{{ row.patient }}</td>
+					<td>{{ row.patientIdentifier }}</td>
+					<td>{{ row.abTest }}</td>
+					<td>{{ row.createdAt|date }}</td>
+				</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}

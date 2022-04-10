@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AB Test - create{% endblock %}
+{% block header %}AB Test - create{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="col">
+			{{ form_start(form) }}
+			{{ form_row(form.patient) }}
+			{{ form_row(form.patientIdentifier) }}
+
+			<button type="submit" class="btn btn-primary">Create</button>
+			{{ form_end(form) }}
+		</div>
+	</div>
+{% endblock %}

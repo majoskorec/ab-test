@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User - list{% endblock %}
+{% block header %}User - list{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="col">
+			<a href="{{ path('app_admin_user_create') }}">add new</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<table class="table">
+				<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Email</th>
+					<th scope="col">Name</th>
+					<th scope="col">Verified</th>
+				</tr>
+				</thead>
+				<tbody>
+				{% for row in list %}
+					<tr>
+						<th scope="row">{{ row.id }}</th>
+						<td>{{ row.email }}</td>
+						<td>{{ row.name }}</td>
+						<td>{{ row.verified }}</td>
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}
