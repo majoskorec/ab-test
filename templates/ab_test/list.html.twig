@@ -17,7 +17,7 @@
 	</div>
 	<div class="row">
 		<div class="col">
-			<div class="rounded-3 border border-dark p-1">
+			<div class="rounded-3 border border-dark p-1 table-responsive">
 				<table class="table table-light table-striped table-hover mb-0">
 					<thead>
 					<tr>
@@ -26,7 +26,7 @@
 						<th scope="col">Patient</th>
 						<th scope="col">Patient Identifier</th>
 						<th scope="col">Ab Test</th>
-						<th scope="col">Created At</th>
+						<th scope="col" class="d-none d-sm-table-cell">Created At</th>
 					</tr>
 					</thead>
 					<tbody>
@@ -37,7 +37,11 @@
 						<td>{{ row.patient }}</td>
 						<td>{{ row.patientIdentifier }}</td>
 						<td>{{ row.abTest ? 'A' : 'B' }}</td>
-						<td>{{ row.createdAt|date }}</td>
+						<td class="d-none d-sm-table-cell">
+							<small>
+								{{ row.createdAt|date('Y-m-d H:i') }}
+							</small>
+						</td>
 					</tr>
 					{% endfor %}
 					</tbody>
