@@ -19,20 +19,20 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Throwable;
 
+#[Route('/admin/user/create', name: 'app_admin_user_create')]
 final class CreateController extends AbstractController
 {
     public function __construct(
-        private EmailVerifier $emailVerifier,
-        private EntityManagerInterface $entityManager,
-        private UserPasswordHasherInterface $userPasswordHasher,
-        private FromEmail $fromEmail,
+        private readonly EmailVerifier $emailVerifier,
+        private readonly EntityManagerInterface $entityManager,
+        private readonly UserPasswordHasherInterface $userPasswordHasher,
+        private readonly FromEmail $fromEmail,
     ) {
     }
 
     /**
      * @throws Throwable
      */
-    #[Route('/admin/user/create', name: 'app_admin_user_create')]
     public function __invoke(Request $request): Response
     {
         $user = new User();

@@ -7,9 +7,9 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
+#[Route('/logout', name: 'app_logout', methods: ['GET'])]
 final class LogoutController extends AbstractController
 {
-    #[Route('/logout', name: 'app_logout', methods: ['GET'])]
     public function __invoke(): void
     {
     }

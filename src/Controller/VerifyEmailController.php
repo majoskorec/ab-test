@@ -13,16 +13,16 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 
+#[Route('/verify/email', name: 'app_verify_email')]
 final class VerifyEmailController extends AbstractController
 {
     public function __construct(
-        private EmailVerifier $emailVerifier,
-        private TranslatorInterface $translator,
-        private UserRepository $userRepository
+        private readonly EmailVerifier $emailVerifier,
+        private readonly TranslatorInterface $translator,
+        private readonly UserRepository $userRepository,
     ) {
     }
 
-    #[Route('/verify/email', name: 'app_verify_email')]
     public function __invoke(Request $request): Response
     {
         $id = $request->get('id');

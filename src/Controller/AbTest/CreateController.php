@@ -13,19 +13,18 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Security;
 
+#[Route('/ab-test/create', name: 'app_ab_test_create')]
 final class CreateController extends AbstractController
 {
-    public function __construct(private Security $security, private EntityManagerInterface $entityManager)
-    {
-
+    public function __construct(
+        private readonly EntityManagerInterface $entityManager,
+    ) {
     }
 
-    #[Route('/ab-test/create', name: 'app_ab_test_create')]
     public function __invoke(Request $request): Response
     {
-        $user = $this->security->getUser();
+        $user = $this->getUser();
         if (!$user instanceof User) {
             throw new UnauthorizedHttpException('unauthorized');
         }

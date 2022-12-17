@@ -2,35 +2,36 @@
 
 {% block title %}Login{% endblock %}
 {% block header %}Login{% endblock %}
+{% block containerClass %}{{ parent() }} mt-5 rounded-3 border border-dark pt-4 p-5{% endblock %}
 
 {% block content %}
     <form action="{{ path('app_login') }}" method="post">
         <div class="row">
-            <div class="col">
+            <div class="col ">
                 {% if error %}
                     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                 {% endif %}
 
-                    <div class="mb-3">
-                        <label for="username" class="form-label required">Email:</label>
-                        <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control"/>
-                    </div>
+                <div class="mb-3">
+                    <label for="username" class="form-label required">Email:</label>
+                    <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control"/>
+                </div>
 
-                    <div class="mb-3">
-                        <label for="password" class="form-label required">Password:</label>
-                        <input type="password" id="password" name="_password" class="form-control"/>
-                    </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label required">Password:</label>
+                    <input type="password" id="password" name="_password" class="form-control"/>
+                </div>
 
-                    <input type="hidden" name="_target_path" value="{{ path('app_ab_test_list') }}"/>
-                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                <input type="hidden" name="_target_path" value="{{ path('app_ab_test_list') }}"/>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <button type="submit" class="btn btn-primary">login</button>
+                <button type="submit" class="btn btn-secondary">login</button>
             </div>
             <div class="col text-end">
-                <a href="{{ path('app_forgot_password_request') }}" class="">forgot password</a>
+                <a href="{{ path('app_forgot_password_request') }}" class="btn btn-link">forgot password</a>
             </div>
         </div>
     </form>
