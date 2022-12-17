@@ -8,9 +8,9 @@
 		<div class="col">
 			Tests: {{ stats.total }}
 			|
-			A: {{ stats.aCount }}
+			S plazmou: {{ stats.aCount }}
 			|
-			B: {{ stats.bCount }}
+			Bez plazmy: {{ stats.bCount }}
 
 			<a href="{{ path('app_ab_test_create') }}" class="btn btn-secondary btn-sm float-end">add new</a>
 		</div>
@@ -25,7 +25,7 @@
 						<th scope="col" class="d-none d-sm-table-cell">User</th>
 						<th scope="col">Patient</th>
 						<th scope="col">Patient Identifier</th>
-						<th scope="col">Ab Test</th>
+						<th scope="col" class="text-center">Plazma</th>
 						<th scope="col" class="d-none d-sm-table-cell">Created At</th>
 					</tr>
 					</thead>
@@ -36,7 +36,7 @@
 						<td class="d-none d-sm-table-cell">{{ row.user.name }}</td>
 						<td>{{ row.patient }}</td>
 						<td>{{ row.patientIdentifier }}</td>
-						<td>{{ row.abTest ? 'A' : 'B' }}</td>
+						<td class="text-center">{{ row.abTest ? 's' : 'bez' }}</td>
 						<td class="d-none d-sm-table-cell">
 							<small>
 								{{ row.createdAt|date('Y-m-d H:i') }}
