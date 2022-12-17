@@ -22,7 +22,7 @@
 					<thead>
 					<tr>
 						<th scope="col">#</th>
-						<th scope="col">User</th>
+						<th scope="col" class="d-none d-sm-table-cell">User</th>
 						<th scope="col">Patient</th>
 						<th scope="col">Patient Identifier</th>
 						<th scope="col">Ab Test</th>
@@ -33,7 +33,7 @@
 					{% for row in list %}
 					<tr>
 						<th scope="row">{{ row.id }}</th>
-						<td>{{ row.user.name }}</td>
+						<td class="d-none d-sm-table-cell">{{ row.user.name }}</td>
 						<td>{{ row.patient }}</td>
 						<td>{{ row.patientIdentifier }}</td>
 						<td>{{ row.abTest ? 'A' : 'B' }}</td>
